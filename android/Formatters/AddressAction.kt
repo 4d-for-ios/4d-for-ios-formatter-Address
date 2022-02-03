@@ -17,9 +17,9 @@ fun addressAction(view: TextView, addressAction: String?) {
     view.text = addressAction
     view.setOnClickListener {
 
-        @Suppress("MaxLineLength")
         val lonLatRegex =
-            "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$".toRegex()
+            "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?),\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"
+                .toRegex()
         val uri = if (lonLatRegex.matches(addressAction)) {
             "geo:$addressAction"
         } else {
