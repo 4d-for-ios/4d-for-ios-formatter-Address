@@ -1,5 +1,6 @@
 {
 	"name": "address",
 	"binding": "addressAction",
-	"type" : "text"
+	"type" : "text",
+	"target" : ["ios", "android"]
 }
