@@ -3,10 +3,9 @@ package ___PACKAGE___
 import android.content.Intent
 import android.net.Uri
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import com.qmobile.qmobileapi.utils.UTF8
-import com.qmobile.qmobiledatasync.toast.MessageType
-import com.qmobile.qmobileui.utils.ToastHelper
 import timber.log.Timber
 import java.io.UnsupportedEncodingException
 import java.net.URLEncoder
@@ -28,11 +27,7 @@ fun addressAction(view: TextView, addressAction: String?) {
                 "geo:0,0?q=$query"
             } catch (e: UnsupportedEncodingException) {
                 Timber.e(e.localizedMessage)
-                ToastHelper.show(
-                    view.context,
-                    "Could not encode given address for Maps",
-                    MessageType.WARNING
-                )
+                Toast.makeText(view.context, "Could not encode given address for Maps", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
         }
